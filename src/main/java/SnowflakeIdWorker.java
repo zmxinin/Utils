@@ -4,7 +4,9 @@ import org.apache.commons.lang3.SystemUtils;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Date;
 
 /**
  * @author try
@@ -30,7 +32,7 @@ public class SnowflakeIdWorker {
     private final long maxDataCenterId = -1L ^ (-1L << dataCenterIdBits);
 
     /** 序列在id中占的位数 */
-    private final long serialNumBits = 12L;
+    private final long serialNumBits = 1L;
 
     /** 机器ID向左移12位 */
     private final long machineIdShift = serialNumBits;
@@ -218,6 +220,12 @@ public class SnowflakeIdWorker {
             long id = idWorker.nextId();
             System.out.println(id+"-----"+Long.toString(id).length()+"-----"+Long.toBinaryString(id));
         }
+
+//        Long time = 1673080455L;
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Date date = new Date(time);
+//        String format = sdf.format(date);
+//        System.out.println(format);
 
     }
 

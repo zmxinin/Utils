@@ -8,7 +8,7 @@
 public class MyThread implements Runnable{
     @Override
     public void run() {
-        SnowflakeIdWorker18 idWorker = new SnowflakeIdWorker18();
+        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(1,1);
         for (int i = 0; i < 20; i++) {
             long id = idWorker.nextId();
             System.out.println(Thread.currentThread().getName()+id+"-----"+Long.toString(id).length()+"-----"+Long.toBinaryString(id));
